@@ -9,5 +9,18 @@ In this section , we will take a look at the kubernetes Architecture at high lev
   
   ![Kubernetes Architecture 1](../../images/k8s-arch1.PNG)
 
+  - Cargo ships: Worker Node (Host Application as Containers)
+    -  Container engine: Docker / ContainerD
+    -  Captain: **kublet** (executes instructions from kube-apiserver, and sends report back to kube-apiserver)
+    -  Inter-ship communications: **kube-proxy** (enable non-k8s services on two nodes to reach each other)
+  - Control ships: Master Node (Manage, Plan, Schedule, Monitor Nodes)
+    -  Log book maintaining information about cargo ships: **etcd Cluster**
+    -  Crane that loads cargo onto cargo ships: **kube-scheduler**
+    -  Offices for Maintainance teams: **kube-controllers**
+      - Cargo ship maintainance office: **node-controller** (Handle Node Lifecycle)
+      - Cargo fleet maintainance office: **replication-controller** (Handle Replication Strategy)
+      - CEO's office: **controller-manager**
+    -  Control ship communications (internal + between captains): **kube-apiserver**
+
 K8s Reference Docs:
 - https://kubernetes.io/docs/concepts/architecture/
