@@ -6,6 +6,7 @@ In this section, we will take a look at PODS.
 - How to deploy pod?
 
 #### Kubernetes doesn't deploy containers directly on the worker node.
+Pod is the smallest unit of deployment you can control in Kubernetes
 
   ![pod](../../images/pod.PNG)
   
@@ -14,11 +15,10 @@ In this section, we will take a look at PODS.
 ![pod1](../../images/pod1.PNG)
 
 #### Pod will have a one-to-one relationship with containers running your application.
-
-  ![pod2](../../images/pod2.PNG)
+You can save cost by deploying multiple Pod on a Node. In AWS, this will be each EC2 instance running multiple Pods of different applications.
   
-## Multi-Container PODs
-- A single pod can have multiple containers except for the fact that they are usually not multiple containers of the **`same kind`**.
+## Multi-Container PODs 
+A single pod can have multiple containers except for the fact that they are usually ** multiple containers of different kind ** -- like sidecar architecture. Not doing sidecar architecture means having to deploy main and helper containers seperately, making container management hard.
   
   ![pod3](../../images/pod3.PNG)
   
