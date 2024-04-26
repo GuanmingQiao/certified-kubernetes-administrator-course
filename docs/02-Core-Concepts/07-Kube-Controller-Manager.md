@@ -8,7 +8,10 @@ In this section, we will take a look at kube-controller-manager.
 - In kubernetes terms, a controller is a process that continuously monitors the state of the components within the system and works towards bringing the whole system to the desired functioning state.
 
 ## Node Controller
-   - Responsible for monitoring the state of the Nodes and taking necessary actions to keep the application running. 
+   - Responsible for **monitoring** the state of the Nodes and taking necessary actions to keep the application running (**remediation**).
+     - Node Controller checks node health on `kube-apiserver` every 5 seconds.
+     - If healthcheck fails for 40 seconds, node is marked unreachable.
+     - If unreachable for 5 mins, node is evicted.
   
    ![node-controller](../../images/node-controller.PNG)
    
@@ -29,6 +32,8 @@ In this section, we will take a look at kube-controller-manager.
     ```
     $ wget https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-controller-manager
     ```
+  - Some configurations for healthcheck strategy: **`node-monitor-period`** (Healthcheck interval), **`node-monitor-grace-period`** (Grace period before marking unreachable), **`pod-eviction-timeout`** (Grace period before eviction)
+    
   - By default all controllers are enabled, but you can choose to enable specific one from **`kube-controller-manager.service`**
     ```
     $ cat /etc/systemd/system/kube-controller-manager.service
