@@ -15,6 +15,11 @@
        ```
        $ ./etcd
        ```
+     - ETCD has two CLI versions: ETCDCLT_API, and ETCDCTL. Set both two the same version
+       ```
+       $ ./etcdctl version
+       $ export ETCDCTL_API=3
+       ```
      - When you start **`ETCD`** it will by default listen on port **`2379`**
       - The default client that comes with **`ETCD`** is the [**`etcdctl`**](https://github.com/etcd-io/etcd/tree/main/etcdctl) client. You can use it to store and retrieve key-value pairs.
         ```
@@ -29,7 +34,6 @@
         Syntax: To view more commands. Run etcdctl without any arguments
         $ ./etcdctl
         ```
-
         ![etcdctl](../../images/etcdctl.PNG)
 
        K8s Reference Docs:
