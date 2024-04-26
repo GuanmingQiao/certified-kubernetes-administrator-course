@@ -13,7 +13,8 @@ In this section, we will take a look at ETCD role in kubernetes
   ```
   $ wget -q --https-only "https://github.com/etcd-io/etcd/releases/download/v3.3.11/etcd-v3.3.11-linux-amd64.tar.gz"
   ```
-
+- Note the **`--advertise-client-urls`** option. It configures the host and port on which the ETCD client listens. 2379 is the default ETCD listening port, and **this is the URL that `kube-apiserver` should try to reach when it talks to ETCD**.
+  
   ![etcd](../../images/etcd.PNG)
   
 ## Setup - Kubeadm
@@ -28,6 +29,9 @@ In this section, we will take a look at ETCD role in kubernetes
   ```
   $ kubectl exec etcd-master -n kube-system -- sh -c "ETCDCTL_API=3 etcdctl --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key --cacert=/etc/kubernetes/pki/etcd/ca.crt get / --prefix --keys-only"
   ```
+  - `kubectl exec etcd-master -n kube-system -- sh -c`: Enter the `etcd-master` pod in `kube-system` namespace via a `sh (shell)`, and execute command
+  - `ETCDCTL_API=3`: set the API version in the session
+  - `etcdctl ** get / **`: get all saved keys
 - Kubernetes Stores data in a specific directory structure, the root directory is the **`registry`** and under that you have various kubernetes constructs such as **`minions`**, **`nodes`**, **`pods`**, **`replicasets`**, **`deployments`**, **`roles`**, **`secrets`** and **`Others`**.
   
   ![etcdctl1](../../images/etcdctl1.PNG)
