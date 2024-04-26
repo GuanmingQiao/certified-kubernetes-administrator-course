@@ -7,6 +7,9 @@ Within Kubernetes Cluster, every pod can reach every other pod, this is accompli
 - Kube-Proxy is a process that runs on each node in the kubernetes cluster.
   
   ![kube-proxy](../../images/kube-proxy.PNG)
+  - The left pod is a web application, and the right pod is a database application. The left pod can reach the right pod directly by its IP. But there is not guarantee that the IPs will stay the same.
+  - To automatically join the two Pods together, we create a `service: db` to expose the DB pod on the cluster.
+  - `service: db` is not an actual process, it is an in-memory object. `kube-proxy` monitors service creation, and set up forwarding rules in each node to reflect the service's rules (e.g. adding rules in `iptable`)
   
 ## Install kube-proxy - Manual
 - Download the kube-proxy binary from the kubernetes release pages [kube-proxy](https://storage.googleapis.com/kubernetes-release/release/v1.13.0/bin/linux/amd64/kube-proxy). For example: To download kube-proxy v1.13.0, Run the below command.
