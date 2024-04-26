@@ -7,6 +7,13 @@ In this section, we will talk about kube-apiserver in kubernetes
 - Kube-apiserver is responsible for **`authenticating`**, **`validating`** requests, **`retrieving`** and **`Updating`** data in ETCD key-value store. In fact kube-apiserver is the only component that interacts directly to the etcd datastore. The other components such as kube-scheduler, kube-controller-manager and kubelet uses the API-Server to update in the cluster in their respective areas.
   
   ![post](../../images/post.PNG)
+- Specifically, when `kube-apiserver` receives a POST API call to create a Pod, it interacts with other components:
+  - `kube-apiserver` authenticates user, validates request (by comparing with exisiting configuration in etcd)
+  - `kube-apiserver` creates a pod object without assigning it to a worker node, updates ETCD
+  - `kube-scheduler` continuously monitors `kube-apiserver`. Realizing that there's an unassigned Pod, assigns the Pod to a Worker Node
+  - `kube-apiserver` receives Worker Node information from `kube-scheduler`, then updates ETCD
+  - `kube-apiserver` updates kublet on the Worker Node. kublet creates the Pod, then report back to `kube-apiserver`
+  - `kube-apiserver` updates ETCD for the last time with the Pod creation info
   
 ## Installing kube-apiserver
 
@@ -17,6 +24,9 @@ In this section, we will talk about kube-apiserver in kubernetes
     ```
  
  ![kube-apiserver](../../images/kube-apiserver.PNG)
+  - Some important parameters:
+    - `cafile`, `certfile`, `keyfile`, `kubelet-certificate-authority`, `kublet-client-certificate`, `kublet-client-key`, `kublet-https`: certificate / authentication-related parameters
+    - `etcd-servers`: host and port of the ETCD server (see 05 notes for where it is defined in ETCD setup)
  
 ## View kube-apiserver - Kubeadm
 - kubeadm deploys the kube-apiserver as a pod in kube-system namespace on the master node.
