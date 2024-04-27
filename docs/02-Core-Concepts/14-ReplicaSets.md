@@ -91,7 +91,7 @@ In this section, we will take a look at the below
  ```
 #### ReplicaSet requires a selector definition when compare to Replication Controller.
   - **`selector`** enables ReplicaSet to manage all Pods with given labels. Pods don't have to be created under the ReplicaSet. It is the main difference between ReplicaSet and ReplicationController.
-
+  - **`apiVersion` == `apps/v1`** for ReplicaSet. `v1` for ReplicationController.
    
   - To Create the replicaset
     ```
