@@ -45,12 +45,13 @@ Lets now take a look to create a nginx pod using **`kubectl`**.
         - app
         - type
   - spec (dict)
-    - containers (list)
-      - \- name:
-      - image:
+    - containers (list, **mark start of each member with `-`**)
+      - {name, image}
   ```
   $ kubectl create -f pod-definition.yml
   ```
+  ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/77f6dbf6-c8cd-4b48-9eff-7ced66ca34dd)
+
   ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/a47383d9-df30-424c-a76f-a5d850cae842)
   
 - To get the list of pods
@@ -62,7 +63,19 @@ Lets now take a look to create a nginx pod using **`kubectl`**.
   
   ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/3b81180d-5890-4b31-ac88-9f92d5283868)
 
-
+ - To edit a pod: one of three actions
+   ```
+   $ kubectl edit pod redis
+   ```
+   Brings up redis.yml automatically, and commit change after user edit
+   ```
+   $ kubectl apply -f redis.yaml
+   ```
+   Manually edit redis.yml, then apply after
+   ```
+   $ kubectl set image pod/redis redis=redis
+   ```
+   Directly set image. `pod/redis` is `resource_type/resource_name` format. Image is set as `container_name=image_name`. In this case, the redis pod, redis container and redis image are named `redis`.
 
 K8s Reference Docs:
 - https://kubernetes.io/docs/concepts/workloads/pods/pod/
