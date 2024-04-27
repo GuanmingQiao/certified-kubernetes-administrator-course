@@ -151,6 +151,10 @@ In this section, we will take a look at the below
   ```
   $ kubectl scale --replicas=6 replicaset myapp-replicaset
   ```
+  - Fourth way is to use **`kubectl edit`** command and change yaml file interactively
+  ```
+  $ kubectl edit replicaset ${replica_set_name}
+  ```
   ![rs2](../../images/rs2.PNG)
 
 #### K8s Reference Docs:
