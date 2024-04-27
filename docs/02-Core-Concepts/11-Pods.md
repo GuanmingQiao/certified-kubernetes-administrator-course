@@ -46,7 +46,7 @@ Lets now take a look to create a nginx pod using **`kubectl`**.
         - type
   - spec (dict)
     - containers (list)
-      - name:
+      - \- name:
       - image:
   ```
   $ kubectl create -f pod-definition.yml
