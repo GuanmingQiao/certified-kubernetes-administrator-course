@@ -29,17 +29,36 @@ A single pod can have multiple containers except for the fact that they are usua
 ## How to deploy pods?
 Lets now take a look to create a nginx pod using **`kubectl`**.
 
-- To deploy a docker container by creating a POD.
+- To deploy a pod using default image from DockerHub.
   ```
   $ kubectl run nginx --image nginx
   ```
 
+ ![kubectl](../../images/kubectl.PNG)
+
+- To deploy a pod using definition from yaml file (`-f`)
+  - apiVersion: version of `kubectl_api` to use
+  - kind: Pod
+  - metadata (dict)
+    - name
+    - labels (dict)
+        - app
+        - type
+  - spec (dict)
+    - containers (list)
+      - name:
+      - image:
+  ```
+  $ kubectl create -f pod-definition.yml
+  ```
 - To get the list of pods
   ```
   $ kubectl get pods
+  $ kubectl describe pod ${name}
   ```
+    
+  ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/a47383d9-df30-424c-a76f-a5d850cae842)
 
- ![kubectl](../../images/kubectl.PNG)
 
 K8s Reference Docs:
 - https://kubernetes.io/docs/concepts/workloads/pods/pod/
