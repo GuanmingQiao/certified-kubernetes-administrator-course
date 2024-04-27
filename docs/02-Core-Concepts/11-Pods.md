@@ -51,13 +51,17 @@ Lets now take a look to create a nginx pod using **`kubectl`**.
   ```
   $ kubectl create -f pod-definition.yml
   ```
+  ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/a47383d9-df30-424c-a76f-a5d850cae842)
+  
 - To get the list of pods
   ```
   $ kubectl get pods
   $ kubectl describe pod ${name}
   ```
-    
-  ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/a47383d9-df30-424c-a76f-a5d850cae842)
+  The `Ready` column notes `running containers / total containers` in a Pod
+  
+  ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/3b81180d-5890-4b31-ac88-9f92d5283868)
+
 
 
 K8s Reference Docs:
