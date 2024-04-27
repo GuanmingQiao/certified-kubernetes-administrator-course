@@ -61,6 +61,10 @@ In this section we will take a look at **`services`** in kubernetes
          app: myapp
          type: front-end
        ```
+    - You need to configure both networking (**`targetPort`, `port`, `nodePort**`) and **selector** correctly
+      - **targetPort**: The internal port on the Pod. Called targetPort from Service's perspective.
+      - **port**: Service's internal port listening to the Pod.
+      - **nodePort**: Node's external port that is made availiable and linked to internal ports.
 
     ![srvnp1](../../images/srvnp1.PNG)
       
