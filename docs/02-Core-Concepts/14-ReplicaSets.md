@@ -44,6 +44,7 @@ In this section, we will take a look at the below
            image: nginx
      replicas: 3
 ```
+  - **`template`** section is just Pod yaml's `metadata` and `spec` fields
   - To Create the replication controller
     ```
     $ kubectl create -f rc-definition.yaml
