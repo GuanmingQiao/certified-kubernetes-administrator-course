@@ -27,8 +27,6 @@ In this section we will take a look at **`services`** in kubernetes
  
  #### There are 3 types of service types in kubernetes
  
-   ![srv-types](../../images/srv-types.PNG)
- 
  1. NodePort
     - Where the service makes an internal port accessible on a port on the NODE.
       ```
@@ -65,6 +63,7 @@ In this section we will take a look at **`services`** in kubernetes
       - **targetPort**: The internal port on the Pod. Called targetPort from Service's perspective.
       - **port**: Service's internal port listening to the Pod.
       - **nodePort**: Node's external port that is made availiable and linked to internal ports.
+      - **selector**: Pod labels that the Service links to.
 
     ![srvnp1](../../images/srvnp1.PNG)
       
@@ -82,22 +81,27 @@ In this section we will take a look at **`services`** in kubernetes
       ```
       $ curl http://192.168.1.2:30008
       ```
-      
-      ![srvnp2](../../images/srvnp2.PNG)
 
-      #### A service with multiple pods
+      #### A service with multiple pods is supported.
+    - Will randomly route to all pods with the labels
       
       ![srvnp3](../../images/srvnp3.PNG)
       
-      #### When Pods are distributed across multiple nodes
+      #### A service with pods distributed across multiple nodes is supported.
+    - The NodePort will be made availiable on every `${Node_IP}:{Service_Port}`. Will reandomly route to all pods with the labels.
      
       ![srvnp4](../../images/srvnp4.PNG)
      
             
- 1. ClusterIP
-    - In this case the service creates a **`Virtual IP`** inside the cluster to enable communication between different services such as a set of frontend servers to a set of backend servers.
-    
- 1. LoadBalancer
+ 3. ClusterIP
+      #### Different from NodePort: Single IP vs. Node IP.
+    - In this case the service creates a **single virtual IP** inside the cluster to enable communication between different services such as a set of frontend servers to a set of backend servers.
+    ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/99465660-bf65-45d0-bc9d-41de69f65399)
+
+      #### To connect the service to the pod
+    - Same Yaml as NodePort Service. With `type: ClusterIP`
+
+ 5. LoadBalancer
     - Where the service provisions a **`loadbalancer`** for our application in supported cloud providers.
     
 K8s Reference Docs:
