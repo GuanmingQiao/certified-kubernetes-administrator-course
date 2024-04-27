@@ -138,7 +138,7 @@ In this section, we will take a look at the below
        matchLabels:
         type: front-end
 ```
-
+  - **`selector`** enables ReplicaSet to manage all Pods with given labels. Pods don't have to be created under the ReplicaSet. It is the main difference between ReplicaSet and ReplicationController.
   ```
   $ kubectl apply -f replicaset-definition.yaml
   ```
