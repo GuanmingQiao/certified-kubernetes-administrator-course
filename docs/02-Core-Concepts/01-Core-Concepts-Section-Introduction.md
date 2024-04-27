@@ -34,10 +34,6 @@ Reference (Bookmark this page for exam. It will be very handy):
 
 `kubectl create deployment ${deployment_name} --image=nginx nginx`
 
-- Generate Deployment YAML file (-o yaml). Don't create it(--dry-run)
-
-`kubectl create deployment ${deployment_name} --image=nginx nginx --dry-run=client -o yaml`
-
 - Generate Deployment YAML file (-o yaml). Don’t create it(–dry-run) and save it to a file.
 
 `kubectl create deployment --image=nginx nginx --dry-run=client -o yaml > nginx-deployment.yaml`
