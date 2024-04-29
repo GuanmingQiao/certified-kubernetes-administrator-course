@@ -8,7 +8,7 @@ So far in this course we have created **`Objects`** such as **`PODs`**, **`Deplo
 
   ![ns](../../images/ns.PNG)
  
-- You can create your own namespaces as well. They function in the same way GrubHub envs like `gh-prod`, `gh-preprod` do (resource isolation).
+- Namespaces function differently from GrubHub envs like `gh-prod`, `gh-preprod`. GrubHub envs are isolated in different VPCs, and they can not reach each other. K8s namespaces are just DNS aliases for IPs. Services in differnet namespaces can reach each other by IP directly.
 - Service's fully-qualified domain name is the service name + all of its namespaces.
   ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/7944d011-d0f3-49ec-8d29-e9c51b9009cd)
 
