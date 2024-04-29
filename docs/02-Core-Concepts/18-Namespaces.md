@@ -8,7 +8,11 @@ So far in this course we have created **`Objects`** such as **`PODs`**, **`Deplo
 
   ![ns](../../images/ns.PNG)
  
-- You can create your own namespaces as well.
+- You can create your own namespaces as well. They function in the same way GrubHub envs like `gh-prod`, `gh-preprod` do (resource isolation).
+- Service's fully-qualified domain name is the service name + all of its namespaces.
+  ![image](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/7944d011-d0f3-49ec-8d29-e9c51b9009cd)
+
+- Multiple namespaces can co-exist in the same cluster.
 
   ![ns3](../../images/ns3.PNG)
   
