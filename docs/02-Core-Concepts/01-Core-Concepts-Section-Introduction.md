@@ -22,31 +22,27 @@ Reference (Bookmark this page for exam. It will be very handy):
 
 #### Easy Create Resource / Generate YAML
 
-- Create an NGINX Pod
+- Create an NGINX Pod and expose it on container port 8080
 
-`kubectl run nginx --image=nginx`
+`kubectl run nginx --image=nginx --port=8080`
 
 - Generate POD Manifest YAML file (-o yaml). Don't create it(--dry-run)
 
 `kubectl run nginx --image=nginx --dry-run=client -o yaml`
 
-- Create a deployment
+- Create a deployment with name nginx and image nginx and 2 replicas
 
-`kubectl create deployment ${deployment_name} --image=nginx nginx`
+`kubectl create deployment nginx ${deployment_name} --image=nginx --replicas=2`
+
+- Create a service that exposes pod container port 6500 on service port 443 for the whole Cluster (ClusterIP)
+  
+`kubectl expose pod redis --target-port=6500 --port=443 --name redis-service`
 
 - Generate Deployment YAML file (-o yaml). Don’t create it(–dry-run) and save it to a file.
 
-`kubectl create deployment ${deployment_name} --image=nginx --dry-run=client -o yaml > nginx-deployment.yaml`
+`kubectl ${action} ${resource_type} ${resource_name} --image=nginx --dry-run=client -o yaml > ${config_name}.yaml`
 
-- Make necessary changes to the file (for example, adding more replicas) and then create the deployment.
-
-`kubectl create -f nginx-deployment.yaml`
-
-- In k8s version 1.19+, we can specify the --replicas option to create a deployment with 4 replicas.
-
-`kubectl create deployment --image=nginx nginx --replicas=4 --dry-run=client -o yaml > nginx-deployment.yaml`
-
-- Or use declarative command (leave k8s to figure out what to do) -- will create if does not exist
+- In general, can use declarative command (leave k8s to figure out what to do). K8s will create if does not exist
 
 `kubectl apply -f nginx-deployment.yaml`
 
@@ -63,6 +59,6 @@ Reference (Bookmark this page for exam. It will be very handy):
 
 `kubectl replace --force -f nginx-deployment.yaml`
 
-- Or use declarative command (leave k8s to figure out what to do) -- will replace if exists
+- In general, can use declarative command (leave k8s to figure out what to do). K8s will replace if exists
 
 `kubectl apply -f nginx-deployment.yaml`
