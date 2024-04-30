@@ -42,21 +42,27 @@ Reference (Bookmark this page for exam. It will be very handy):
 
 `kubectl create -f nginx-deployment.yaml`
 
-OR
-
 - In k8s version 1.19+, we can specify the --replicas option to create a deployment with 4 replicas.
 
 `kubectl create deployment --image=nginx nginx --replicas=4 --dry-run=client -o yaml > nginx-deployment.yaml`
 
 - Or use declarative command (leave k8s to figure out what to do) -- will create if does not exist
+
 `kubectl apply -f nginx-deployment.yaml`
 
 #### Easy Update Resource
 - Opens up resource configuration in YAML format and edits it interactively
+
 `kubectl edit ${resource_type} ${resource_name}`
+
 - Or apply an updated yaml file
+
 `kubectl replace -f nginx-deployment.yaml`
+
 - Or delete then recreate a resource:
+
 `kubectl replace --force -f nginx-deployment.yaml`
+
 - Or use declarative command (leave k8s to figure out what to do) -- will replace if exists
+
 `kubectl apply -f nginx-deployment.yaml`
