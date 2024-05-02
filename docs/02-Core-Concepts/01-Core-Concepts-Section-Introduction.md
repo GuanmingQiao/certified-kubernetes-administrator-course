@@ -24,10 +24,11 @@ Reference (Bookmark this page for exam. It will be very handy):
 - Inspect the environment for all controlplane components: get all pods in kube-system
 `kubectl get pods -n kube-system`
 `kubectl get all -n kube-system`
+`kubectl get pods/rcs/deployments -n kube-system`
 
 - Basic pods for k8s to run: `etcd-controlplane`, `kube-apiserver-controlplane`, `kube-controller-manager-controlplane`, `kube-proxy`, `kube-scheduler-controlplane`
 
-- Filter resources with metadata label selector: `kubectl get pods --selector key=val`
+- Filter resources with metadata label selector: `kubectl get pods --selector key1=val1,key2=val2`
 
 #### Easy Create Resource / Generate YAML
 
