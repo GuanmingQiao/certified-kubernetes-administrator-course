@@ -24,6 +24,8 @@ Reference (Bookmark this page for exam. It will be very handy):
 - Inspect the environment for all controlplane components: get all pods in kube-system
 `kubectl get pods -n kube-system`
 
+- Basic pods for k8s to run: `etcd-controlplane`, `kube-apiserver-controlplane`, `kube-controller-manager-controlplane`, `kube-proxy`, `kube-scheduler-controlplane`
+
 #### Easy Create Resource / Generate YAML
 
 - Create an NGINX Pod and expose it on container port 8080
