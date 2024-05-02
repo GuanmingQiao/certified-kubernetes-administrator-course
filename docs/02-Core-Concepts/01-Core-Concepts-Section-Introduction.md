@@ -23,6 +23,7 @@ Reference (Bookmark this page for exam. It will be very handy):
 #### Easy Getting Resource
 - Inspect the environment for all controlplane components: get all pods in kube-system
 `kubectl get pods -n kube-system`
+`kubectl get all -n kube-system`
 
 - Basic pods for k8s to run: `etcd-controlplane`, `kube-apiserver-controlplane`, `kube-controller-manager-controlplane`, `kube-proxy`, `kube-scheduler-controlplane`
 
