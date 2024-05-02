@@ -20,6 +20,10 @@ Reference (Bookmark this page for exam. It will be very handy):
 
 **https://kubernetes.io/docs/reference/kubectl/conventions/**
 
+#### Get All Controlplane Resources
+- Inspect the environment for all controlplane components: get all pods in kube-system
+`kubectl get pods -n kube-system`
+
 #### Easy Create Resource / Generate YAML
 
 - Create an NGINX Pod and expose it on container port 8080
