@@ -20,11 +20,13 @@ Reference (Bookmark this page for exam. It will be very handy):
 
 **https://kubernetes.io/docs/reference/kubectl/conventions/**
 
-#### Get All Controlplane Resources
+#### Easy Getting Resource
 - Inspect the environment for all controlplane components: get all pods in kube-system
 `kubectl get pods -n kube-system`
 
 - Basic pods for k8s to run: `etcd-controlplane`, `kube-apiserver-controlplane`, `kube-controller-manager-controlplane`, `kube-proxy`, `kube-scheduler-controlplane`
+
+- Filter resources with metadata label selector: `kubectl get pods --selector key=val`
 
 #### Easy Create Resource / Generate YAML
 
@@ -35,6 +37,10 @@ Reference (Bookmark this page for exam. It will be very handy):
 - Generate POD Manifest YAML file (-o yaml). Don't create it(--dry-run)
 
 `kubectl run nginx --image=nginx --dry-run=client -o yaml`
+
+- Create a replicaset with name nginx and image nginx and 2 replicas
+
+`kubectl create replicaset nginx ${rs_name} --image=nginx --replicas=2`
 
 - Create a deployment with name nginx and image nginx and 2 replicas
 
