@@ -8,7 +8,9 @@ In this section we will take a look at Resource Limits
 - If there is no sufficient resources available on any of the nodes, kubernetes holds the scheduling the pod. You will see the pod in pending state. If you look at the events, you will see the reason as insufficient CPU.
   
   ![rl](../../images/rl.PNG)
-  
+
+- Typically, the best comination is having `Resource Requirements` but not `Resource Limit`, so that all Pods are guaranteed minimum resources, and each Pod are free to consume the leftover availiable CPU.
+
 ## Resource Requirements
 - By default, K8s assume that a pod or container within a pod requires **`0.5`** CPU and **`256Mi`** of memory. This is known as the **`Resource Request` for a container**.
   
