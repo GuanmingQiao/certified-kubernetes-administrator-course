@@ -4,6 +4,7 @@
 In this section, we will take a look at DaemonSets.
 
 #### DaemonSets are like replicasets, as it helps in to deploy multiple instances of pod. But it runs one copy of your pod on each node in your cluster.
+- DemonSet = ReplicaSet with `replicas=#nodes`
   
   ![ds](../../images/ds.PNG)
   
