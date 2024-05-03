@@ -3,9 +3,10 @@
 
 In this section, we will take a look at DaemonSets.
 
-#### DaemonSets are like replicasets, as it helps in to deploy multiple instances of pod. But it runs one copy of your pod on each node in your cluster.
+#### DaemonSets are like replicasets, as it helps in to deploy multiple instances of pod. 
 - DemonSet = ReplicaSet with `replicas=#nodes`
-  
+- But it runs one copy of your pod on each node in your cluster.
+- `kube-proxy` is deployed as a DaemonSet  
   ![ds](../../images/ds.PNG)
   
 ## DaemonSets - UseCases
