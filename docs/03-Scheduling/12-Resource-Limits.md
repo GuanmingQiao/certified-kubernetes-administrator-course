@@ -78,9 +78,13 @@ In this section we will take a look at Resource Limits
 ## Default Pod Resource Requirement: Namespace-level Applied
 #### Note: Remember Requests and Limits for resources are set per container in the pod. All numbers are per-container
 - LimitRange: all Pods created in namespace by default will request / limit
+  
 <img width="352" alt="image" src="https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/5df6f755-9a7b-45fc-b89d-98f8a7afdb2a">
+
 <img width="351" alt="image" src="https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/c54f583c-b3c9-4b28-8f95-9c42aae33390">
+
 - Resource Quotas: in total, all Pods in a namespace will request / limit
+
 <img width="241" alt="image" src="https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/d45955f8-7ff0-4175-b359-083eb0f2f630">
 
 
