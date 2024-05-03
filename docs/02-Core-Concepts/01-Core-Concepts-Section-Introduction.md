@@ -40,6 +40,10 @@ Reference (Bookmark this page for exam. It will be very handy):
 
 `kubectl run nginx --image=nginx --dry-run=client -o yaml`
 
+- Generate Pod Manifest YAML file from existing Pod. This applies to all resources
+
+`kubectl get pod webapp -o yaml > my-new-pod.yaml`
+
 - Create a replicaset with name nginx and image nginx and 2 replicas
 
 `kubectl create replicaset nginx ${rs_name} --image=nginx --replicas=2`
