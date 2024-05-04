@@ -12,7 +12,7 @@ In this section , we will take a look at the kubernetes Architecture at high lev
   - Cargo ships: Worker Node (Host Application as Containers)
     -  Container engine: Docker / ContainerD
     -  Captain: **kublet Service** (executes instructions from kube-apiserver, and sends report back to kube-apiserver)
-    -  Inter-ship communications: **kube-proxy static Pod** (enable non-k8s services on two nodes to reach each other)
+    -  Inter-ship communications: **kube-proxy daemonSet Pod** (enable non-k8s services on two nodes to reach each other)
   - Control ships: Master Node (Manage, Plan, Schedule, Monitor Nodes)
     -  Log book maintaining information about cargo ships: **etcd Cluster static Pod**
     -  Crane that loads cargo onto cargo ships: **kube-scheduler static Pod**
