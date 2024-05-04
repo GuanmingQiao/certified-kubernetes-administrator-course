@@ -18,7 +18,7 @@ In this section, we will take a look at Static Pods
   ![sp1](../../images/sp1.PNG)
 
 ## View the static pods
-- To view the static pods
+- To view the static pods (without `kube-apiserver` and therefore no `kubectl` command.
   ```
   $ docker ps
   ```
