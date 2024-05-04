@@ -25,6 +25,8 @@ In this section, we will take a look at Static Pods
   ![sp2](../../images/sp2.PNG)
 
 #### The kubelet can create both kinds of pods - the static pods and the ones from the api server at the same time.
+- `kube-apiserver` is aware of static Pods created by kubelets, but is unable to edit them
+- Therefore, the static Pods returned by `kubectl` command are a read-only mirror.
 
   ![sp3](../../images/sp3.PNG)
 
