@@ -10,6 +10,7 @@ In this section, we will take a look at Static Pods
 - The designated directory can be any directory on the host and the location of that directory is passed in to the kubelet as an option while running the service.
   - The option is named as **`--pod-manifest-path`**.
 - Can find kublet configuration at `var/lib/kubelet/config.yaml`
+- **Warning: can not edit the files in manifest path**: all modifications need to be done outside of the manifest folder. Otherwise, the whole yaml file will be ignored by Kubelet
   
   ![sp](../../images/sp.PNG)
   
