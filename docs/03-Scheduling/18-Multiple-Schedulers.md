@@ -15,7 +15,7 @@ In this section, we will take a look at multiple schedulers
   ```
   ![das](../../images/das.PNG)
   
-## Deploy additional scheduler - kubeadm
+## Deploy additional scheduler without separate config file
    
   ![dask](../../images/dask.PNG)
   
@@ -23,7 +23,16 @@ In this section, we will take a look at multiple schedulers
     ```
     $ kubectl create -f my-custom-scheduler.yaml
     ```
+
+## Deploy additional scheduler with separate config file
+  <img width="955" alt="image" src="https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/assets/22064968/1e89e135-784f-42b8-8c7b-34420d2db2ea">
   
+   - To create a scheduler pod
+    ```
+    $ kubectl create -f my-custom-scheduler.yaml
+    ```
+
+
 ## View Schedulers
 - To list the scheduler pods
   ```
