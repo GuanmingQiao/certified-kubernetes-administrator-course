@@ -32,6 +32,10 @@ In this section, we will take a look at multiple schedulers
      $ kubectl create -f my-custom-scheduler.yaml
      ```
 
+## Create scheduler config from yaml as a `ConfigMap` volume
+```
+$ kubectl create -n kube-system configmap my-scheduler-config --from-file=/root/my-scheduler-config.yaml
+```
 
 ## View Schedulers
 - To list the scheduler pods
@@ -62,7 +66,7 @@ In this section, we will take a look at multiple schedulers
   ```
   $ kubectl get pods
   ```
-
+  
 ## View Events
 - To view events
   ```
