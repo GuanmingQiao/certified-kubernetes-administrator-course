@@ -11,7 +11,7 @@ In this section, we will take a look at monitoring kubernetes cluster
 
   ![hpms](../../images/hpms.PNG)
   
-## Metrics Server
+## Metrics Server -- One Per Cluster
 
   ![ms1](../../images/ms1.PNG)
 
