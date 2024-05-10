@@ -16,6 +16,7 @@ In this section, we will take a look at monitoring kubernetes cluster
   ![ms1](../../images/ms1.PNG)
 
 #### How are the metrics generated for the PODs on these nodes?
+- Kubelet on each node has a `cAdvisor` component, which makes metrics availiable for the metric server.
 
   ![ca](../../images/ca.PNG)
   
