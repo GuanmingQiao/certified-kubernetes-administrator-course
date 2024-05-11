@@ -6,6 +6,7 @@ In this section, we will take a look at rolling updates and rollback in a deploy
 ## Rollout and Versioning in a Deployment
 
   ![rollv](../../images/rollv.PNG)
+- Each new version of deployment gets a new `revision` number.
   
 ## Rollout commands
 - You can see the status of the rollout by the below command
@@ -58,15 +59,14 @@ In this section, we will take a look at rolling updates and rollback in a deploy
   ```
   $ kubectl set image deployment/myapp-deployment nginx=nginx:1.9.1
   ```
-  ![ka](../../images/ka.PNG)
   
 ## Recreate vs RollingUpdate
+- View difference in update strategy as reflected in the Deployment events: `kubectl describe deployment ${deployment_name}`
   
   ![rcrl](../../images/rcrl.PNG)
   
 ## Upgrades
-
-  ![up](../../images/up.PNG)
+- Under the hood, when a deployment in upgraded, a new ReplicaSet is created, and the old one slowly scaled down
   
 ## Rollback
   
