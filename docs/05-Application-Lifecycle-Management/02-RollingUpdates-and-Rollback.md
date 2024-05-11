@@ -67,7 +67,11 @@ In this section, we will take a look at rolling updates and rollback in a deploy
   
 ## Upgrades
 - Under the hood, when a deployment in upgraded, a new ReplicaSet is created, and the old one slowly scaled down
-  
+- To view a rollout
+  ```
+  $ kubectl rollout status deployment/myapp-deployment
+  $ kubectl rollout history deployment/myapp-deployment
+  ```
 ## Rollback
   
   ![rb](../../images/rb.PNG)
