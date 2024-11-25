@@ -85,10 +85,13 @@ Reference (Bookmark this page for exam. It will be very handy):
 - `ip link`: Analyze and manage network interface
 - `ip address`: Find out the current network configuration
   - `ip address show type bridge`: Show all network interfaces of type `bridge`
-- `ip addr add 192.168.1.10/24 dev eth0`
 - `ip route`
+- `ip addr add 192.168.1.10/24 dev eth0`
 - `ip route add 192.168.1.10/24 via 192.168.2.1`
 - `cat /proc/sys/net/ipv4/ip_forward`
-- `arp`
-- `netstat -plnt`
-- `route`
+- `netstat -plnt`: Get active network connnections. (e.g. What is the port the kube-scheduler is listening on in the controlplane node?)
+![image](https://github.com/user-attachments/assets/c9a7424d-ff14-4c80-bde0-fbf291fb583b)
+- `route`: Get routing table
+![image](https://github.com/user-attachments/assets/a8314af0-9146-4c39-a4ad-c87afcca810f)
+- `arp`: Get mapping between IP address and hardware address
+![image](https://github.com/user-attachments/assets/b46ea1fd-7456-484a-aaa8-98c989abc0d9)
