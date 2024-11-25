@@ -89,9 +89,12 @@ Reference (Bookmark this page for exam. It will be very handy):
 - `ip addr add 192.168.1.10/24 dev eth0`
 - `ip route add 192.168.1.10/24 via 192.168.2.1`
 - `cat /proc/sys/net/ipv4/ip_forward`
-- `netstat -plnt`: Get active network connnections. (e.g. What is the port the kube-scheduler is listening on in the controlplane node?)
+- `netstat -plnt`: Get active network connnections. (e.g. What is the port the kube-scheduler is listening on in the controlplane node?)\
 ![image](https://github.com/user-attachments/assets/c9a7424d-ff14-4c80-bde0-fbf291fb583b)
-- `route`: Get routing table
+  - `netstat -npa`: Get active network connections from IP to IP, the connection ports and program name\
+  ![image](https://github.com/user-attachments/assets/5d026353-1a0f-4adf-9899-2c0ef913ed5b)
+
+- `route`: Get routing table\
 ![image](https://github.com/user-attachments/assets/a8314af0-9146-4c39-a4ad-c87afcca810f)
-- `arp`: Get mapping between IP address and hardware address
+- `arp`: Get mapping between IP address and hardware address\
 ![image](https://github.com/user-attachments/assets/b46ea1fd-7456-484a-aaa8-98c989abc0d9)
