@@ -82,8 +82,8 @@ Reference (Bookmark this page for exam. It will be very handy):
 `kubectl apply -f nginx-deployment.yaml`
 
 #### Networking Commands
-- `ip link`
-- `ip address`
+- `ip link`: Analyze and manage network interface
+- `ip address`: Find out the current network configuration
 - `ip addr add 192.168.1.10/24 dev eth0`
 - `ip route`
 - `ip route add 192.168.1.10/24 via 192.168.2.1`
