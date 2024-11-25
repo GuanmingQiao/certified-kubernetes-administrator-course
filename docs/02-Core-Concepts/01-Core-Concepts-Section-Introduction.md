@@ -80,3 +80,14 @@ Reference (Bookmark this page for exam. It will be very handy):
 - In general, can use declarative command (leave k8s to figure out what to do). K8s will replace if exists
 
 `kubectl apply -f nginx-deployment.yaml`
+
+#### Networking Commands
+- `ip link`
+- `ip address`
+- `ip addr add 192.168.1.10/24 dev eth0`
+- `ip route`
+- `ip route add 192.168.1.10/24 via 192.168.2.1`
+- `cat /proc/sys/net/ipv4/ip_forward`
+- `arp`
+- `netstat -plnt`
+- `route`
