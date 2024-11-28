@@ -81,7 +81,7 @@ Reference (Bookmark this page for exam. It will be very handy):
 
 `kubectl apply -f nginx-deployment.yaml`
 
-#### Networking Commands
+#### Networking Commands -- CNI-Configured (Calico)
 - `ip link`: Analyze and manage network interface
 - `ip address`: Find out the current network configuration
   - `ip address show type bridge`: Show all network interfaces of type `bridge`
@@ -98,9 +98,13 @@ Reference (Bookmark this page for exam. It will be very handy):
 - `ps -aux`: Get all running processes and the command that trigger them
   - e.g. `ps -aux | grep kubelet`: Get kubelet running configuration
   <img width="952" alt="image" src="https://github.com/user-attachments/assets/d2882caa-996a-4e98-bf5e-473bcd1dcc32">
-
-
 - `route`: Get routing table\
 ![image](https://github.com/user-attachments/assets/a8314af0-9146-4c39-a4ad-c87afcca810f)
 - `arp`: Get mapping between IP address and hardware address\
 ![image](https://github.com/user-attachments/assets/b46ea1fd-7456-484a-aaa8-98c989abc0d9)
+
+
+#### Kubelet Config Dir
+- `opt/cni/bin`: list of availaible CNI plugins
+- `etc/cni`: CNI config
+- 
