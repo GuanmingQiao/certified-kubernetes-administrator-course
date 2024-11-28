@@ -94,6 +94,12 @@ Reference (Bookmark this page for exam. It will be very handy):
   - `netstat -npa`: Get active network connections from IP to IP, the connection ports and program name. Could have LISTENING or ESTABLISHED modes.\
   ![image](https://github.com/user-attachments/assets/5d026353-1a0f-4adf-9899-2c0ef913ed5b)
 
+#### OS / Processes
+- `ps -aux`: Get all running processes and the command that trigger them
+  - e.g. `ps -aux | grep kubelet`: Get kubelet running configuration
+  <img width="952" alt="image" src="https://github.com/user-attachments/assets/d2882caa-996a-4e98-bf5e-473bcd1dcc32">
+
+
 - `route`: Get routing table\
 ![image](https://github.com/user-attachments/assets/a8314af0-9146-4c39-a4ad-c87afcca810f)
 - `arp`: Get mapping between IP address and hardware address\
