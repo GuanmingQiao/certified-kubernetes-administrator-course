@@ -25,6 +25,7 @@ Reference (Bookmark this page for exam. It will be very handy):
 `kubectl get pods -n kube-system`
 `kubectl get all -n kube-system`
 `kubectl get pods/rcs/deployments -n kube-system`
+`kubectl logs -n kube-system ${pod}`
 
 - Basic pods for k8s to run: `etcd-controlplane`, `kube-apiserver-controlplane`, `kube-controller-manager-controlplane`, `kube-proxy`, `kube-scheduler-controlplane`
 
