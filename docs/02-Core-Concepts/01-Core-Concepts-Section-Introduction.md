@@ -86,7 +86,7 @@ Reference (Bookmark this page for exam. It will be very handy):
 - `ip link`: Analyze and manage network interface
 - `ip address`: Find out the current network configuration
   - `ip address show type bridge`: Show all network interfaces of type `bridge`
-- `ip route`
+- `ip route` (e.g. Get default gateway for all network traffic)
 - `ip addr add 192.168.1.10/24 dev eth0`
 - `ip route add 192.168.1.10/24 via 192.168.2.1`
 - `cat /proc/sys/net/ipv4/ip_forward`
