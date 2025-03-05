@@ -57,27 +57,17 @@ In this section, we will take a look at backup and restore methods
   ![be1](../../images/be1.PNG)
   
 ## Restore - ETCD
-- To restore etcd from the backup at later in time. First stop kube-apiserver service
+- `ETCDCTL_API=3 etcdctl --data-dir /var/lib/etcd-from-backup snapshot restore snapshot.db` Restore ETCD from snapshot.db file, and write a new data manifest to /var/lib/etcd-from-backup
+- Update `/etc/kubernetes/manifests/etcd.yaml` to use the new data volume. Still mount it to etcd-data directory in the container.
   ```
-  $ service kube-apiserver stop
+  volumes:
+  - hostPath:
+      path: /var/lib/etcd-from-backup
+      type: DirectoryOrCreate
+    name: etcd-data
   ```
-- Run the etcdctl snapshot restore command
-- Update the etcd service
-- Reload system configs
-  ```
-  $ systemctl daemon-reload
-  ```
-- Restart etcd
-  ```
-  $ service etcd restart
-  ```
-  
-  ![er](../../images/er.PNG)
-  
-- Start the kube-apiserver
-  ```
-  $ service kube-apiserver start
-  ```
+- After this file is modified, all components on master node will restart. `kubectl` will not be accessible for a few minutes. Can use `watch "crictl ps | grep etcd"` to mointor the restart status.
+
 #### With all etcdctl commands specify the cert,key,cacert and endpoint for authentication.
 ```
 $ ETCDCTL_API=3 etcdctl \
