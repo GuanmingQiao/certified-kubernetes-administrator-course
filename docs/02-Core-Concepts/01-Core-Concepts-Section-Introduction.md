@@ -121,6 +121,8 @@ Reference (Bookmark this page for exam. It will be very handy):
 #### Backup
 - `kubectl get all --all-namespaces -o yaml > all-deploy-services.yaml` Manually save all supported resource configurations. This is not as good as third-party solutions (like Velero).
 - `ETCDCTL_API=3 etcdctl snapshot save snapshot.db` Take a snapshot of ETCD DB. This will save the state of cluster.
+- Note: these operations can only be performed in a controlplane session, because the cert/key files will only be saved in the controlplane pod. If you are operating from a shell on maintainer node, you won't be able to call backup command unless you have the secrets locally.
+
 
 #### Restore
 - See [this](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/blob/master/docs/06-Cluster-Maintenance/07-Backup-and-Restore-Methods.md). Remember only to update `volumes` section of the manifest. Do not change the mapping from local to container.
