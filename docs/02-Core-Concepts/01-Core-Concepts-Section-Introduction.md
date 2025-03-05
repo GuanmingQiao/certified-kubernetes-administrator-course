@@ -123,7 +123,4 @@ Reference (Bookmark this page for exam. It will be very handy):
 - `ETCDCTL_API=3 etcdctl snapshot save snapshot.db` Take a snapshot of ETCD DB. This will save the state of cluster.
 
 #### Restore
-- `service kube-apiserver stop` Stop api server first (it depends on ETCD DB)
-- `ETCDCTL_API=3 etcdctl snapshot restore snapshot.db` Restore ETCD from snapshot.db file -- this adds new entries to 
-- `systemctl daemon-reload` Update systemd's understanding of all service daemons (so it becomes aware of the new ETCD service)
-- `service etcd restart` Restart etcd daemon. Now systemd is aware of the new state of etcd service, it will restart with the new configuration
+- See [this](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/blob/master/docs/06-Cluster-Maintenance/07-Backup-and-Restore-Methods.md). Remember only to update `volumes` section of the manifest. Do not change the mapping from local to container.
