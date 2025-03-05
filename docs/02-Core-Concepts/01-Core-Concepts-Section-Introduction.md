@@ -109,11 +109,21 @@ Reference (Bookmark this page for exam. It will be very handy):
 - `opt/cni/bin`: list of availaible CNI plugins
 - `etc/cni`: CNI config
 
-#### Updating Nodes
+#### Draining Nodes
 - `k drain node-1`: Cordon off node-1 and evict existing pods on the node
 - `k drain node-1 --ignore-deamonsets`: Evict pods even if they are deployed as part of DeamonSet (a kind of set that ensures one pod per node)
 - `k uncordon node-1`: Enable scheduling to node-1 again
 
 #### Upgrading K8s Cluster w/ Kubeadm
 - `kubeadm update plan`: Show current versions of the cluster and kubeadm tool
-- See [this](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/blob/master/docs/06-Cluster-Maintenance/05-Cluster-Upgrade-Introduction.md) for specifics. Upgrade kubeadm (services master node) -> upgrade kubelets (worker nodes)
+- See [this](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/blob/master/docs/06-Cluster-Maintenance/05-Cluster-Upgrade-Introduction.md) for specifics. Upgrade kubeadm (services master node components) -> upgrade master node kubelet -> ssh into worker node -> upgrade worker node kubelet
+
+#### Backup
+- `kubectl get all --all-namespaces -o yaml > all-deploy-services.yaml` Manually save all supported resource configurations. This is not as good as third-party solutions (like Velero).
+- `ETCDCTL_API=3 etcdctl snapshot save snapshot.db` Take a snapshot of ETCD DB. This will save the state of cluster.
+
+#### Restore
+- `service kube-apiserver stop` Stop api server first (it depends on ETCD DB)
+- `ETCDCTL_API=3 etcdctl snapshot restore snapshot.db` Restore ETCD from snapshot.db file -- this adds new entries to 
+- `systemctl daemon-reload` Update systemd's understanding of all service daemons (so it becomes aware of the new ETCD service)
+- `service etcd restart` Restart etcd daemon. Now systemd is aware of the new state of etcd service, it will restart with the new configuration
