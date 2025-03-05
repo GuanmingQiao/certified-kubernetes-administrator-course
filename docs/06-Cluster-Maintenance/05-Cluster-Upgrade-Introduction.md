@@ -25,6 +25,10 @@
   ![stg3](../../images/stg3.PNG)
   
 ## kubeadm - Upgrade master node
+- First make sure your apt is pointing to a repository that actually contains the target version. For example, to upgrade from 1.31 to 1.32, you need to:
+  
+![image](https://github.com/user-attachments/assets/059809a3-ae11-4ec5-b5f2-31133b8d8ac6)
+
 - kubeadm has an upgrade command that helps in upgrading clusters.
   ```
   $ kubeadm upgrade plan
