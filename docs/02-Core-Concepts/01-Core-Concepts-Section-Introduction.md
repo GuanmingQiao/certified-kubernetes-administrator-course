@@ -108,4 +108,12 @@ Reference (Bookmark this page for exam. It will be very handy):
 #### Kubelet Config Dir
 - `opt/cni/bin`: list of availaible CNI plugins
 - `etc/cni`: CNI config
-- 
+
+#### Updating Nodes
+- `k drain node-1`: Cordon off node-1 and evict existing pods on the node
+- `k drain node-1 --ignore-deamonsets`: Evict pods even if they are deployed as part of DeamonSet (a kind of set that ensures one pod per node)
+- `k uncordon node-1`: Enable scheduling to node-1 again
+
+#### Upgrading K8s Cluster w/ Kubeadm
+- `kubeadm update plan`: Show current versions of the cluster and kubeadm tool
+- See [this](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/blob/master/docs/06-Cluster-Maintenance/05-Cluster-Upgrade-Introduction.md) for specifics. Upgrade kubeadm (services master node) -> upgrade kubelets (worker nodes)
