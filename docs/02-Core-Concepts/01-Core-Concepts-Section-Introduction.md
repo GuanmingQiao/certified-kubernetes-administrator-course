@@ -141,7 +141,7 @@ Reference (Bookmark this page for exam. It will be very handy):
    - Cluster-static Pods are directly managed by Kubelet as a runtime on each node(etcd, kube-apiserver). They have their crt, key and pem passed in on their runtime (can see through `ps -aux`); Configured with manifest file e.g. `etc/kubernetes/manifests/kube-apiserver.yaml`
      - To view logs of kubeadm service or pods, use kubectl command `$ kubectl logs etcd-master`
      - To view logs of docker container, use docker command `$ docker logs`
-   - Alternatively, they can also run as systemd service. Some components by default run this way (e.g. kubelet, kube-proxt) See configuration `etc/systemd/system/kube-apiserver.service`;
+   - Alternatively, they can also run as systemd service. Some components by default run this way (e.g. kubelet) See configuration `etc/systemd/system/kube-apiserver.service`;
      - To view logs of systemd service, use OS primitive command `$ journalctl -u etcd.service -l`
      - To view status of systemd service, use OS primitive ` $systemctl list-units *.service`
    - Pods (kubelet) have theirs configured in yaml. e.g. `kubelet-config.yaml`.
