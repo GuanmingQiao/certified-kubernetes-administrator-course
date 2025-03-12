@@ -126,3 +126,19 @@ Reference (Bookmark this page for exam. It will be very handy):
 
 #### Restore
 - See [this](https://github.com/GuanmingQiao/certified-kubernetes-administrator-course/blob/master/docs/06-Cluster-Maintenance/07-Backup-and-Restore-Methods.md). Remember only to update `volumes` section of the manifest. Do not change the mapping from local to container.
+ 
+#### Server TLS Certificate in k8s
+- Clients: admin through `kubectl`, `kube-scheduler`, `kube-controller-manager`, `kube-proxy`.
+- Both Client and Server: `kube-apiserver`(receive from clients, but also send to `etcd` and `kubelet`
+- Servers: `etcd`, `kubelet`
+- Generate a cert (CA / client / server)
+  - Key Generation: `$ openssl genrsa -out ${TYPE}.key 2048` <- generate private key
+  - Signing Request: `$ openssl req -new -key ${TYPE}.key -subj "/CN=${USERNAME}/O=${GROUP}" -config openssl.cnf -out ${TYPE}.csr` <- generate certificate signing request (CSR) with private key. Provide user name and user group that this certificate represent. And provide a config file if has one
+    - For kubeapiserver, multiple DNS names might be required under the `[alt_names]` section of the openssl.cnf. Because many clients will expect different names of the service.
+    - For kubelet client cert, their naming convention need to be `system:nodes:${node_name}`
+  - Certificate Generation: `$ openssl x509 -req -in ${TYPE}.csr -signkey ${TYPE}.key -out ${TYPE}.crt` <- generate certificate by signing SCR wtih private key
+ - Viewing Certificates
+   - Daemons (etcd, kube-apiserver) have their crt, key and pem passed in on their runtime (ps -aux); Or through systemd configuration `etc/systemd/system/kube-apiserver.service`; Or through kubeadm `etc/kubernetes/manifests/kube-apiserver.yaml`
+   - Pods (kubelet) have theirs configured in yaml. e.g. `kubelet-config.yaml`.
+   - Read certificate: `$ openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout`
+ 
