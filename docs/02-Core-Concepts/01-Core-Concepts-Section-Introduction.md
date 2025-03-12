@@ -138,9 +138,11 @@ Reference (Bookmark this page for exam. It will be very handy):
     - For kubelet client cert, their naming convention need to be `system:nodes:${node_name}`
   - Certificate Generation: `$ openssl x509 -req -in ${TYPE}.csr -signkey ${TYPE}.key -out ${TYPE}.crt` <- generate certificate by signing SCR wtih private key
  - Viewing Certificates
-   - Daemons (etcd, kube-apiserver) have their crt, key and pem passed in on their runtime (ps -aux); Or through systemd configuration `etc/systemd/system/kube-apiserver.service`; Or through kubeadm `etc/kubernetes/manifests/kube-apiserver.yaml`
-     - To view logs of systemd service, use OS primitive command `$ journalctl -u etcd.service -l`
+   - Cluster-static Pods are directly managed by Kubelet as a runtime on each node(etcd, kube-apiserver). They have their crt, key and pem passed in on their runtime (can see through `ps -aux`); Configured with manifest file e.g. `etc/kubernetes/manifests/kube-apiserver.yaml`
      - To view logs of kubeadm service or pods, use kubectl command `$ kubectl logs etcd-master`
      - To view logs of docker container, use docker command `$ docker logs`
+   - Alternatively, they can also run as systemd service. Some components by default run this way (e.g. kubelet, kube-proxt) See configuration `etc/systemd/system/kube-apiserver.service`;
+     - To view logs of systemd service, use OS primitive command `$ journalctl -u etcd.service -l`
+     - To view status of systemd service, use OS primitive ` $systemctl list-units *.service`
    - Pods (kubelet) have theirs configured in yaml. e.g. `kubelet-config.yaml`.
    - Read certificate: `$ openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout` 
