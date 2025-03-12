@@ -139,6 +139,6 @@ Reference (Bookmark this page for exam. It will be very handy):
   - Certificate Generation: `$ openssl x509 -req -in ${TYPE}.csr -signkey ${TYPE}.key -out ${TYPE}.crt` <- generate certificate by signing SCR wtih private key
  - Viewing Certificates
    - Daemons (etcd, kube-apiserver) have their crt, key and pem passed in on their runtime (ps -aux); Or through systemd configuration `etc/systemd/system/kube-apiserver.service`; Or through kubeadm `etc/kubernetes/manifests/kube-apiserver.yaml`
+     - To view logs of systemd service, use OS primitive command `$ journalctl -u etcd.service -l`  
    - Pods (kubelet) have theirs configured in yaml. e.g. `kubelet-config.yaml`.
-   - Read certificate: `$ openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout`
- 
+   - Read certificate: `$ openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout` 
